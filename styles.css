@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(-45deg, #050a1f, #0a1930, #0a2342, #113264);
+    background: linear-gradient(135deg, #f5f7fa 0%, #dcdde1 100%);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     overflow: hidden;
@@ -29,31 +29,32 @@ body {
 }
 
 .container {
-    padding: 5rem 7rem;
-    background: rgba(0, 150, 255, 0.05);
+    padding: 3rem 5rem;
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-radius: 30px;
-    border: 1px solid rgba(0, 162, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(0, 102, 255, 0.3);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05),
+                0 1px 3px rgba(0, 0, 0, 0.02);
     transform: translateY(0);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: default;
 }
 
 .container:hover {
-    transform: translateY(-10px);
-    border: 1px solid rgba(0, 162, 255, 0.6);
-    box-shadow: 0 15px 45px 0 rgba(0, 102, 255, 0.5);
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .glow-text {
-    font-size: 40px;
+    font-size: 44px;
     font-weight: 800;
-    color: #ffffff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
-                 0 0 30px rgba(255, 255, 255, 0.4);
-    letter-spacing: -1px;
+    color: #2d3436;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+    letter-spacing: -1.5px;
     animation: float 6s ease-in-out infinite;
 }
 
@@ -62,7 +63,7 @@ body {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
     }
     100% {
         transform: translateY(0px);
@@ -72,9 +73,10 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
-        padding: 3rem 2rem;
+        padding: 2rem 3rem;
+        margin: 20px;
     }
     .glow-text {
-        font-size: 3.5rem;
+        font-size: 28px;
     }
 }
