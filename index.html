@@ -23,6 +23,15 @@
             "오늘도 빛나는 하루 되세요!",
             "포기하지 마세요, 거의 다 왔어요!"
         ];
+
+        const gradients = [
+            "linear-gradient(135deg, #f5f7fa 0%, #dcdde1 100%)",
+            "linear-gradient(135deg, #e0f7fa 0%, #80deea 100%)",
+            "linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%)",
+            "linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%)",
+            "linear-gradient(135deg, #fff3e0 0%, #ffcc80 100%)"
+        ];
+
         let currentIndex = 0;
         
         const mainText = document.getElementById('main-text');
@@ -31,6 +40,8 @@
         nextBtn.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % messages.length;
             mainText.textContent = messages[currentIndex];
+            document.body.style.background = gradients[currentIndex];
+            document.body.style.backgroundSize = "400% 400%";
         });
     </script>
 </body>
