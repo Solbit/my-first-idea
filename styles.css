@@ -48,13 +48,12 @@ body {
 }
 
 .glow-text {
-    font-size: 6rem;
+    font-size: 40px;
     font-weight: 800;
-    color: #00d4ff;
-    text-shadow: 0 0 20px rgba(0, 162, 255, 0.6),
-                 0 0 40px rgba(0, 162, 255, 0.4),
-                 0 0 60px rgba(0, 102, 255, 0.2);
-    letter-spacing: -2px;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+                 0 0 30px rgba(255, 255, 255, 0.4);
+    letter-spacing: -1px;
     animation: float 6s ease-in-out infinite;
 }
 
