@@ -11,7 +11,27 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="glow-text">오늘도 힘내세요!</h1>
+        <h1 class="glow-text" id="main-text">오늘도 힘내세요!</h1>
+        <button id="next-btn" class="next-button">다음 문장 보기</button>
     </div>
+
+    <script>
+        const messages = [
+            "오늘도 힘내세요!",
+            "당신의 열정을 응원합니다.",
+            "작은 시작이 큰 변화를 만듭니다.",
+            "오늘도 빛나는 하루 되세요!",
+            "포기하지 마세요, 거의 다 왔어요!"
+        ];
+        let currentIndex = 0;
+        
+        const mainText = document.getElementById('main-text');
+        const nextBtn = document.getElementById('next-btn');
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            mainText.textContent = messages[currentIndex];
+        });
+    </script>
 </body>
 </html>
