@@ -6,42 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>오늘도 힘내세요!</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="glow-text" id="main-text">오늘도 힘내세요!</h1>
-        <button id="next-btn" class="next-button">다음 문장 보기</button>
-    </div>
+    <header class="main-header">
+        <div class="header-inner">
+            <h1 class="logo">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13 10V2L5 14h7v8l8-12h-7z"/>
+                </svg>
+                나의 첫 서비스
+            </h1>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">소개</a>
+                <a href="#" class="nav-item">기능</a>
+                <a href="#" class="nav-item">문의</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <!-- 핵심 기능 소개 섹션 -->
+        <section class="feature-section">
+            <div class="container">
+                <h1 class="glow-text" id="main-text">오늘도 힘내세요!</h1>
+                <p class="sub-text" id="sub-text">어떤 어려움도 당신의 빛을 가릴 순 없습니다.</p>
+                <button id="next-btn" class="next-button">다음 문장 보기</button>
+            </div>
+        </section>
+
+        <!-- 사용자 후기 섹션 -->
+        <section class="review-section">
+            <h2 class="section-title">사용자 후기</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <img src="profile1.png" alt="사용자1" class="profile-img">
+                    <div class="review-content">
+                        <p class="review-text">"매일 아침 이 서비스를 통해 긍정적인 에너지를 얻고 있어요. 디자인이 너무 예뻐서 자꾸 들어오게 되네요!"</p>
+                        <p class="reviewer-name">김지수 님</p>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <img src="profile2.png" alt="사용자2" class="profile-img">
+                    <div class="review-content">
+                        <p class="review-text">"간단하면서도 강력한 힐링 기능입니다. 주변 지인들에게도 적극 추천하고 있습니다."</p>
+                        <p class="reviewer-name">이민호 님</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 My Service. All rights reserved.</p>
+    </footer>
 
     <script>
         const messages = [
-            "오늘도 힘내세요!",
-            "당신의 열정을 응원합니다.",
-            "작은 시작이 큰 변화를 만듭니다.",
-            "오늘도 빛나는 하루 되세요!",
-            "포기하지 마세요, 거의 다 왔어요!"
+            { title: "오늘도 힘내세요!", desc: "어떤 어려움도 당신의 빛을 가릴 순 없습니다." },
+            { title: "당신의 열정을 응원합니다.", desc: "꿈을 향한 당신의 발걸음은 결코 헛되지 않을 거예요." },
+            { title: "작은 시작이 큰 변화를 만듭니다.", desc: "오늘 내딛는 작은 한 걸음이 내일의 기적을 만듭니다." },
+            { title: "오늘도 빛나는 하루 되세요!", desc: "당신은 존재만으로도 충분히 소중하고 아름다운 사람입니다." },
+            { title: "포기하지 마세요, 거의 다 왔어요!", desc: "터널의 끝에는 언제나 밝은 햇살이 당신을 기다리고 있습니다." }
         ];
 
         const gradients = [
-            "linear-gradient(135deg, #f5f7fa 0%, #dcdde1 100%)",
-            "linear-gradient(135deg, #e0f7fa 0%, #80deea 100%)",
-            "linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%)",
-            "linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%)",
-            "linear-gradient(135deg, #fff3e0 0%, #ffcc80 100%)"
+            "linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%)", // Mint
+            "linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)", // Emerald Light
+            "linear-gradient(135deg, #f7fee7 0%, #ecfccb 100%)", // Lime Light
+            "linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%)", // Teal Light
+            "linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%)"  // Green Mix
         ];
 
         let currentIndex = 0;
 
         const mainText = document.getElementById('main-text');
+        const subText = document.getElementById('sub-text');
         const nextBtn = document.getElementById('next-btn');
 
         nextBtn.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % messages.length;
-            mainText.textContent = messages[currentIndex];
+            mainText.textContent = messages[currentIndex].title;
+            subText.textContent = messages[currentIndex].desc;
             document.body.style.background = gradients[currentIndex];
             document.body.style.backgroundSize = "400% 400%";
         });

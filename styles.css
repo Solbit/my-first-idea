@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #a7f3d0; /* Light Green */
+    --secondary-color: #064e3b; /* Dark Green */
+    --accent-color: #10b981;
+    --text-dark: #064e3b;
+    --text-light: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +13,15 @@
 }
 
 body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #dcdde1 100%);
+    flex-direction: column;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
-    overflow: hidden;
+    font-weight: 400; /* 본문 기본 굵기 */
+    color: var(--text-dark);
 }
 
 @keyframes gradientBG {
@@ -26,6 +34,157 @@ body {
     100% {
         background-position: 0% 50%;
     }
+}
+
+.main-header {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #065f46 100%);
+    color: var(--text-light);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+    animation: pulseIcon 2s infinite ease-in-out;
+}
+
+@keyframes pulseIcon {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.15); opacity: 1; }
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 400; /* 본문 굵기 */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.feature-section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+}
+
+.review-section {
+    padding: 6rem 2rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2d3436;
+    margin-bottom: 4rem;
+    letter-spacing: -1px;
+}
+
+.reviews-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: all 0.4s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.review-content {
+    flex: 1;
+}
+
+.review-text {
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+    font-weight: 400; /* 본문 굵기 */
+}
+
+.reviewer-name {
+    font-weight: 700;
+    color: #1f2937;
+    font-size: 1rem;
+}
+
+.main-footer {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #e5e7eb;
 }
 
 .container {
@@ -57,20 +216,22 @@ body {
     padding: 1.2rem 3rem;
     font-size: 1.1rem;
     font-weight: 700;
-    color: white;
-    background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+    color: var(--text-dark);
+    background: var(--primary-color);
     border: none;
     border-radius: 50px;
-    box-shadow: 0 10px 25px rgba(58, 123, 213, 0.3);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-family: inherit;
 }
 
 .next-button:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(58, 123, 213, 0.5);
-    background: linear-gradient(135deg, #00d2ff 0%, #0066ff 100%);
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 20px 40px rgba(6, 78, 59, 0.3), 
+                0 0 20px rgba(167, 243, 208, 0.2);
+    background: var(--secondary-color);
+    color: white;
 }
 
 .next-button:active {
@@ -80,11 +241,22 @@ body {
 .glow-text {
     font-size: 44px;
     font-weight: 800;
-    color: #2d3436;
+    color: var(--text-dark);
     text-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
     letter-spacing: -1.5px;
     text-align: center;
     animation: float 6s ease-in-out infinite;
+}
+
+.sub-text {
+    font-size: 1.25rem;
+    color: #4b5563;
+    text-align: center;
+    margin-top: -1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: 600px;
+    animation: float 6s ease-in-out infinite 0.5s;
 }
 
 @keyframes float {
@@ -101,11 +273,79 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding: 2rem 3rem;
-        margin: 20px;
+    body {
+        font-size: 0.95rem;
     }
+
+    .main-header {
+        padding: 1.5rem 1rem;
+    }
+
+    .header-inner {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .nav-menu {
+        gap: 1.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .container {
+        padding: 3rem 2rem;
+        margin: 0 1rem;
+        width: calc(100% - 2rem);
+    }
+
     .glow-text {
         font-size: 28px;
+    }
+
+    .sub-text {
+        font-size: 1rem;
+        margin-top: -0.5rem;
+    }
+
+    .next-button {
+        padding: 1.4rem 3rem;
+        font-size: 1.2rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .feature-section {
+        min-height: auto;
+        padding: 5rem 1rem;
+    }
+
+    .review-section {
+        padding: 4rem 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 3rem;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .review-card {
+        padding: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .review-text {
+        font-size: 1rem;
+    }
+
+    .profile-img {
+        width: 60px;
+        height: 60px;
     }
 }
